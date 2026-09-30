@@ -47,6 +47,9 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Claude Code local session state
+.claude/scheduled_tasks.lock
+
 # Environment Variables
 *.env.staging
 *.env.prod
