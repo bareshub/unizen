@@ -56,49 +56,49 @@ class HardcodedLocalDataService implements LocalDataService {
     return [
       Boss(
         animatedScene: AnimatedScene(
-          modelAssetPath: 'build/models/tvwoman.model',
+          modelAssetPath: 'assets/models/tvwoman.glb',
           cameraDistance: 24,
         ),
         ects: 3,
       ),
       Boss(
         animatedScene: AnimatedScene(
-          modelAssetPath: 'build/models/cameraman_supreme_god.model',
+          modelAssetPath: 'assets/models/cameraman_supreme_god.glb',
           cameraDistance: 28,
         ),
         ects: 4,
       ),
       Boss(
         animatedScene: AnimatedScene(
-          modelAssetPath: 'build/models/skibidi_yisus.model',
+          modelAssetPath: 'assets/models/skibidi_yisus.glb',
           cameraDistance: 22,
         ),
         ects: 5,
       ),
       Boss(
         animatedScene: AnimatedScene(
-          modelAssetPath: 'build/models/tv_man_supreme.model',
+          modelAssetPath: 'assets/models/tv_man_supreme.glb',
           cameraDistance: 16,
         ),
         ects: 6,
       ),
       Boss(
         animatedScene: AnimatedScene(
-          modelAssetPath: 'build/models/tvman_multiple_supreme.model',
+          modelAssetPath: 'assets/models/tvman_multiple_supreme.glb',
           cameraDistance: 20,
         ),
         ects: 7,
       ),
       Boss(
         animatedScene: AnimatedScene(
-          modelAssetPath: 'build/models/tvman_multiple.model',
+          modelAssetPath: 'assets/models/tvman_multiple.glb',
           cameraDistance: 24,
         ),
         ects: 8,
       ),
       Boss(
         animatedScene: AnimatedScene(
-          modelAssetPath: 'build/models/tvman_supreme.model',
+          modelAssetPath: 'assets/models/tvman_supreme.glb',
           cameraDistance: 34,
         ),
         ects: 9,
@@ -110,7 +110,7 @@ class HardcodedLocalDataService implements LocalDataService {
   Avatar getAvatar() {
     return Avatar(
       animatedScene: AnimatedScene(
-        modelAssetPath: 'build/models/minecraft_sprunki_tunner.model',
+        modelAssetPath: 'assets/models/minecraft_sprunki_oren_after_blender.glb',
         defaultAnimation: SceneAnimation.walk,
         cameraDistance: 7,
       ),

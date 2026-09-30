@@ -36,7 +36,7 @@ class AnimatedSceneViewModel extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      final node = await Node.fromAsset(model.modelAssetPath);
+      final node = await loadScene(model.modelAssetPath);
 
       for (final animation in node.parsedAnimations) {
         _animationMap[animation.name] = _createClip(node, animation.name);

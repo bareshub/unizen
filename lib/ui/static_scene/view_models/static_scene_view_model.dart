@@ -23,7 +23,7 @@ class StaticSceneViewModel extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      final node = await Node.fromAsset(model.modelAssetPath);
+      final node = await loadScene(model.modelAssetPath);
 
       scene.add(node);
       scene.exposure = model.environmentExposure;
