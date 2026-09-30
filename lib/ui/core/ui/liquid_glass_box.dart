@@ -40,8 +40,8 @@ class LiquidGlassBox extends StatelessWidget {
               color: (color ?? Theme.of(context).colorScheme.primaryContainer).withAlpha(alpha),
             ),
           ),
-          LiquidGlass(
-            shape: LiquidRoundedSuperellipse(borderRadius: Radius.circular(radius)),
+          LiquidGlass.withOwnLayer(
+            shape: LiquidRoundedSuperellipse(borderRadius: radius),
             settings:
                 liquidGlassSettings ??
                 LiquidGlassSettings(
