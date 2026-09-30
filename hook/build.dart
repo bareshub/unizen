@@ -3,19 +3,9 @@ import 'package:flutter_scene/build_hooks.dart';
 
 void main(List<String> args) {
   build(args, (input, output) async {
-    buildModels(
-      buildInput: input,
-      inputFilePaths: [
-        // 'minecraft_sprunki_tunner.glb',
-        // 'tvman_supreme.glb',
-        // 'cameraman_supreme_god.glb',
-        // 'skibidi_yisus.glb',
-        // 'tv_man_supreme.glb',
-        // 'tvman_multiple_supreme.glb',
-        // 'tvman_multiple.glb',
-        // 'tvman_supreme.glb',
-        // 'tvwoman.glb',
-      ],
-    );
+    // Import the .glb sources under assets/ into flutter_scene_generated/.
+    // They are loaded back by source path with loadScene.
+    buildScenes(buildInput: input, buildOutput: output);
+    await buildMaterials(buildInput: input, buildOutput: output);
   });
 }
