@@ -70,7 +70,6 @@ class _AnimatedSceneWidgetState extends State<AnimatedSceneWidget> {
                   elapsedTime: elapsed,
                   rotationX: widget.exam?.rotationX ?? 0.0,
                   cameraDistance: viewModel.model.cameraDistance,
-                  flip: viewModel.model.flip,
                 ),
               ),
             );

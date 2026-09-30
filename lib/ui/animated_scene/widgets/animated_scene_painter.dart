@@ -9,14 +9,12 @@ class AnimatedScenePainter extends CustomPainter {
   final double elapsedTime;
   final double rotationX;
   final double cameraDistance;
-  final bool flip;
 
   const AnimatedScenePainter({
     required this.scene,
     required this.elapsedTime,
     required this.rotationX,
     required this.cameraDistance,
-    this.flip = false,
   });
 
   @override
@@ -25,7 +23,7 @@ class AnimatedScenePainter extends CustomPainter {
       position: vm.Vector3(
         sin(rotationX) * cameraDistance,
         2,
-        cos(rotationX) * cameraDistance * (flip ? -1 : 1),
+        -cos(rotationX) * cameraDistance,
       ),
       target: vm.Vector3.zero(),
     );

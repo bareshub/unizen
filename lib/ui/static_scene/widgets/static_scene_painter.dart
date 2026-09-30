@@ -11,7 +11,7 @@ class StaticScenePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final camera = PerspectiveCamera(
-      position: vm.Vector3(0, 2, cameraDistance),
+      position: vm.Vector3(0, 2, -cameraDistance),
       target: vm.Vector3.zero(),
     );
 
