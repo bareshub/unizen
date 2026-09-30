@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 UniZen is a Flutter productivity app that gamifies university exam preparation. Each exam is assigned a 3D "boss" character; studying damages the boss's health bar, making progress visible through animated 3D models.
 
-**Flutter version**: stable channel `3.44.0` (Dart 3.9.0+)
+**Flutter version**: stable channel `3.47.5` (Dart 3.13.0+)
 
 ## Common Commands
 
@@ -91,12 +91,21 @@ Routes are constants in `lib/routing/routes.dart`. The root route is `/` (timeli
 
 ### 3D Model Workflow (flutter_scene)
 
-Models are `.glb` files processed by a native assets build hook into `.model` files at `build/models/`. Steps to add a new boss:
+The `.glb` sources live in `assets/models/` and are committed. `hook/build.dart`
+calls `buildScenes`, which discovers every `.glb` under `assets/` and converts it
+into a `.fsceneb` inside `flutter_scene_generated/`. That directory is generated
+output tied to the engine that built it, so it is git-ignored and never
+committed. Scenes are loaded back by **source path**, not by output path.
 
-1. Place the `.glb` at the project root.
-2. Run `flutter run` (the hook auto-builds it into `build/models/<name>.model`).
-3. Reference `build/models/<name>.model` in `LocalDataService.getBosses()` via `AnimatedScene(modelAssetPath: ...)`.
-4. Remove the raw `.glb` from the root once processed.
+Steps to add a new boss:
+
+1. Drop the `.glb` into `assets/models/`. Models face the camera after a 180°
+   rotation about Y (see `models/glb/turned/rotate_glb.py` outside the repo).
+2. Run `flutter run` — the hook converts it automatically.
+3. Reference it by its source path in `LocalDataService.getBosses()`, e.g.
+   `AnimatedScene(modelAssetPath: 'assets/models/<name>.glb')`.
+
+Keep the `.glb` in the repo: it is the only source the pipeline can rebuild from.
 
 ### Theming
 
