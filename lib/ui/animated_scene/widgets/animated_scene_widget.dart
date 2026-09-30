@@ -40,7 +40,7 @@ class _AnimatedSceneWidgetState extends State<AnimatedSceneWidget> {
       viewModel.update(elapsed);
     });
 
-    Future.wait([viewModel.loadCommand.executeWithFuture()]).then((_) {
+    Future.wait([viewModel.loadCommand.runAsync()]).then((_) {
       _ticker.start();
 
       setState(() {
@@ -70,7 +70,6 @@ class _AnimatedSceneWidgetState extends State<AnimatedSceneWidget> {
                   elapsedTime: elapsed,
                   rotationX: widget.exam?.rotationX ?? 0.0,
                   cameraDistance: viewModel.model.cameraDistance,
-                  flip: viewModel.model.flip,
                 ),
               ),
             );

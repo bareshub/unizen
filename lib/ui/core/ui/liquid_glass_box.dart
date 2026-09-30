@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_glass_renderer/liquid_glass_renderer.dart';
 
+/// A rounded, translucent surface that layers a liquid glass effect over a
+/// tinted backdrop, with [child] painted on top.
+///
+/// The box takes the size given by its parent, so callers are expected to
+/// constrain it.
 class LiquidGlassBox extends StatelessWidget {
   const LiquidGlassBox({
     super.key,
@@ -27,35 +32,38 @@ class LiquidGlassBox extends StatelessWidget {
   final double refractiveIndex;
   final double saturation;
   final Color? color;
+
+  /// Overrides the settings built from the individual parameters above.
   final LiquidGlassSettings? liquidGlassSettings;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.shrink(
-      child: Stack(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(radius),
-              color: (color ?? Theme.of(context).colorScheme.primaryContainer).withAlpha(alpha),
-            ),
+    final tint = color ?? Theme.of(context).colorScheme.primaryContainer;
+
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(radius),
+            color: tint.withAlpha(alpha),
           ),
-          LiquidGlass(
-            shape: LiquidRoundedSuperellipse(borderRadius: Radius.circular(radius)),
-            settings:
-                liquidGlassSettings ??
-                LiquidGlassSettings(
-                  blur: blur,
-                  refractiveIndex: refractiveIndex,
-                  saturation: saturation,
-                  lightIntensity: lightIntensity,
-                  ambientStrength: ambientStrength,
-                ),
-            child: Container(),
-          ),
-          child,
-        ],
-      ),
+        ),
+        LiquidGlass.withOwnLayer(
+          shape: LiquidRoundedSuperellipse(borderRadius: radius),
+          settings:
+              liquidGlassSettings ??
+              LiquidGlassSettings(
+                blur: blur,
+                chromaticAberration: chromaticAberration,
+                refractiveIndex: refractiveIndex,
+                saturation: saturation,
+                lightIntensity: lightIntensity,
+                ambientStrength: ambientStrength,
+              ),
+          child: const SizedBox.expand(),
+        ),
+        child,
+      ],
     );
   }
 }

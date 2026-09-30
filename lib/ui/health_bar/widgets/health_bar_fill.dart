@@ -29,6 +29,7 @@ class HealthBarFill extends StatelessWidget {
 
         return UnconstrainedBox(
           constrainedAxis: Axis.vertical,
+          alignment: Alignment.centerLeft,
           child: AnimatedContainer(
             constraints: BoxConstraints(minWidth: minWidth),
             duration: Durations.extralong4,

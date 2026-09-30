@@ -39,7 +39,7 @@ class AddExamPageWidget extends StatelessWidget {
                     health: 2780,
                     boss: Boss(
                       animatedScene: AnimatedScene(
-                        modelAssetPath: 'build/models/tv_man_supreme.model',
+                        modelAssetPath: 'assets/models/tv_man_supreme.glb',
                         cameraDistance: 16,
                       ),
                       ects: 6,
@@ -56,7 +56,7 @@ class AddExamPageWidget extends StatelessWidget {
                     health: 2780,
                     boss: Boss(
                       animatedScene: AnimatedScene(
-                        modelAssetPath: 'build/models/tv_man_supreme.model',
+                        modelAssetPath: 'assets/models/tv_man_supreme.glb',
                         cameraDistance: 16,
                       ),
                       ects: 6,
@@ -93,7 +93,7 @@ class AddExamPageWidget extends StatelessWidget {
                     health: 2780,
                     boss: Boss(
                       animatedScene: AnimatedScene(
-                        modelAssetPath: 'build/models/tvman_supreme.model',
+                        modelAssetPath: 'assets/models/tvman_supreme.glb',
                         cameraDistance: 44,
                       ),
                       ects: 3,
@@ -110,7 +110,7 @@ class AddExamPageWidget extends StatelessWidget {
                     health: 4027,
                     boss: Boss(
                       animatedScene: AnimatedScene(
-                        modelAssetPath: 'build/models/tvman_supreme.model',
+                        modelAssetPath: 'assets/models/tvman_supreme.glb',
                         cameraDistance: 44,
                       ),
                       ects: 3,

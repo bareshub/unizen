@@ -33,9 +33,6 @@ migrate_working_dir/
 .pub/
 /build/**
 
-!/build/models/
-!/build/models/**
-
 # Symbolication related
 app.*.symbols
 
@@ -46,6 +43,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Claude Code local session state
+.claude/scheduled_tasks.lock
 
 # Environment Variables
 *.env.staging
