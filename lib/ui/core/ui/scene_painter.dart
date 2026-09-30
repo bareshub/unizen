@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_scene/scene.dart';
 import 'package:vector_math/vector_math.dart' as vm;
 
+import 'scene_ground_shadow.dart';
+
 /// Shared painting logic for every [Scene] drawn on screen.
 ///
-/// Subclasses only decide where the camera sits; the framing and the render
-/// call stay here so that all scenes are presented consistently.
+/// Subclasses only decide where the camera sits; framing, the ground shadow and
+/// the render call stay here so that all scenes are presented consistently.
 abstract class ScenePainter extends CustomPainter {
   const ScenePainter({required this.scene, required this.cameraDistance});
 
@@ -38,6 +40,7 @@ abstract class ScenePainter extends CustomPainter {
       size.height * viewportHeightFactor,
     );
 
+    paintGroundShadow(canvas, size);
     scene.render(camera, canvas, viewport: viewport);
   }
 }
